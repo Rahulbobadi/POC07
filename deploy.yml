@@ -1,0 +1,16 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Pull Docker image
+      command: docker pull demo-app
+
+    - name: Stop old container
+      command: docker stop demo-container
+      ignore_errors: yes
+
+    - name: Remove old container
+      command: docker rm demo-container
+      ignore_errors: yes
+
+    - name: Run new container
+      command: docker run -d -p 3000:3000 --name demo-container demo-app
