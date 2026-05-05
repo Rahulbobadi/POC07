@@ -13,4 +13,4 @@
       ignore_errors: yes
 
     - name: Run new container
-      command: docker run -d -p 3001:3001 --name demo-container demo-app
+      command: docker run -d -p 3000:3000 --name demo-container demo-app
